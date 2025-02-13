@@ -1,21 +1,26 @@
 name: Run Captacity Processing
 
 on: [push, pull_request]  # Runs on every push or pull request
+
 jobs:
   process-video:
     runs-on: ubuntu-latest  # Use Ubuntu for environment
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4  # Updated version
 
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.x'  # Replace with specific Python version if needed
 
+      - name: Install FFmpeg
+        run: sudo apt-get install -y ffmpeg  # Install FFmpeg
+
       - name: Install Captacity
         run: pip install captacity
+
       - name: Update ImageMagick policy
         run: |
           sudo apt-get install -y imagemagick
@@ -35,7 +40,6 @@ jobs:
           sudo sed -i 's/<policy domain="coder" rights="none" pattern="MVG"/<!-- <policy domain="coder" rights="none" pattern="MVG" -->/' $POLICY_FILE || true
           sudo sed -i 's/<policy domain="coder" rights="none" pattern="MSL"/<!-- <policy domain="coder" rights="none" pattern="MSL" -->/' $POLICY_FILE || true
           sudo sed -i 's/<policy domain="coder" rights="none" pattern="PDF"/<!-- <policy domain="coder" rights="none" pattern="PDF" -->/' $POLICY_FILE || true
-
 
       - name: Run Captacity on Video
         run: captacity 1.mp4 output_video.mp4  # Replace with actual filenames
