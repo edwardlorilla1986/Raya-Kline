@@ -1,7 +1,6 @@
 name: Run Captacity Processing
 
 on: [push, pull_request]  # Runs on every push or pull request
-
 jobs:
   process-video:
     runs-on: ubuntu-latest  # Use Ubuntu for environment
