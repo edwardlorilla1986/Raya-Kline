@@ -19,7 +19,7 @@ jobs:
         run: pip install captacity
 
       - name: Run Captacity on Video
-        run: captacity input_video.mp4 output_video.mp4  # Replace with actual filenames
+        run: captacity 1.mp4 output_video.mp4  # Replace with actual filenames
 
       - name: Upload Processed Video
         uses: actions/upload-artifact@v3
