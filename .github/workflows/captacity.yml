@@ -1,25 +1,19 @@
 name: Run Captacity Processing
 
-on: [push, pull_request]  # Runs on every push or pull request
-
+on:
+  push:
+    paths:
+      - 'videos/**.mp4'
+  workflow_dispatch:
 jobs:
-  process-video:
-    runs-on: ubuntu-latest  # Use Ubuntu for environment
-
+  transcribe:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4  # Updated version
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'  # Replace with specific Python version if needed
+        uses: actions/checkout@v3
 
       - name: Install FFmpeg
         run: sudo apt-get install -y ffmpeg  # Install FFmpeg
-
-      - name: Install Captacity
-        run: pip install captacity
 
       - name: Update ImageMagick policy
         run: |
@@ -41,6 +35,18 @@ jobs:
           sudo sed -i 's/<policy domain="coder" rights="none" pattern="MSL"/<!-- <policy domain="coder" rights="none" pattern="MSL" -->/' $POLICY_FILE || true
           sudo sed -i 's/<policy domain="coder" rights="none" pattern="PDF"/<!-- <policy domain="coder" rights="none" pattern="PDF" -->/' $POLICY_FILE || true
 
+
+
+      - name: Install dependencies
+        run: |
+          pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+          pip install git+https://github.com/openai/whisper.git
+
+      - name: Run Whisper on the latest video
+        run: |
+          mkdir -p transcripts
+          LATEST_VIDEO=$(ls -t videos/*.mp4 | head -n1)
+          whisper "$LATEST_VIDEO" --model large --language Chinese --task translate --output_dir transcripts
       - name: Run Captacity on Video
         run: python index.py
 
@@ -49,3 +55,12 @@ jobs:
         with:
           name: processed-video
           path: my_short_with_captions.mp4
+      - name: Commit and Push Transcription
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+          git add transcripts/*.txt || exit 0
+          git commit -m "Added transcription for latest video" || exit 0
+          git push
+
+
