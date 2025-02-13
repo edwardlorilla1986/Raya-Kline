@@ -1,0 +1,28 @@
+name: Run Captacity Processing
+
+on: [push, pull_request]  # Runs on every push or pull request
+
+jobs:
+  process-video:
+    runs-on: ubuntu-latest  # Use Ubuntu for environment
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'  # Replace with specific Python version if needed
+
+      - name: Install Captacity
+        run: pip install captacity
+
+      - name: Run Captacity on Video
+        run: captacity input_video.mp4 output_video.mp4  # Replace with actual filenames
+
+      - name: Upload Processed Video
+        uses: actions/upload-artifact@v3
+        with:
+          name: processed-video
+          path: output_video.mp4
