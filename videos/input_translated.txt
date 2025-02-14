@@ -1,38 +1,52 @@
-[0.00s - 1.56s] Mom, I'm going to take the train.
-[1.56s - 3.08s] Wait for me to go home for the New Year.
-[4.72s - 6.64s] What can I do here?
+[0.00s - 1.48s] Mom, I'm going to take the train soon.
+[1.48s - 2.80s] Wait for me to go home for New Year.
+[2.80s - 3.20s] I'm going to take the train soon.
+[3.20s - 3.84s] I'm going to take the train soon.
+[3.84s - 4.64s] I'm going to take the train soon.
+[4.64s - 6.64s] What can I do here?
 [6.64s - 7.64s] Oh, right.
-[9.48s - 10.52s] How dare you rob me in public?
-[10.52s - 11.52s] I'll teach you a lesson.
-[12.44s - 14.04s] This ring is on the sky.
-[14.04s - 15.60s] It's rare to see a kiss.
-[15.60s - 17.08s] I like little fish.
-[17.08s - 18.00s] I'll teach you.
-[20.00s - 21.20s] Hurry up.
-[21.20s - 23.20s] I'm in the world.
-[23.20s - 24.52s] Come on, let's go on.
-[26.24s - 28.80s] The G104 train should be here.
-[29.60s - 31.00s] Someone is robbing my dad.
-[36.00s - 36.80s] Is there any mistake?
-[36.80s - 37.80s] What time is it?
-[40.20s - 41.60s] I'm going to save people.
-[43.60s - 44.40s] Not me.
-[44.40s - 46.00s] Will you save people or not?
-[46.00s - 47.00s] Actually, I...
-[50.40s - 52.60s] Bird No. 3 is a migrant worker.
-[53.60s - 54.80s] I'm a native.
-[55.20s - 55.80s] That's great.
-[55.80s - 56.60s] It's the native.
-[56.60s - 57.60s] We're saved.
-[59.80s - 62.20s] I'll cut off your back.
-[63.20s - 64.80s] I'll cut off his back with this air gun.
-[65.60s - 66.80s] I suddenly smiled.
-[68.00s - 69.20s] A bunch of people are in a mess.
-[69.20s - 70.00s] I think today
-[70.00s - 71.80s] who can protect you?
-[75.40s - 77.40s] Three, two, one.
-[78.20s - 79.80s] What the hell are you?
-[79.80s - 82.00s] Actually, I'm a weightlifting professional at the PE school.
-[82.40s - 83.40s] Why didn't you tell me earlier?
-[83.40s - 84.80s] You didn't give me a chance.
-[84.80s - 86.00s] Let's go, kid.
+[7.64s - 8.00s] I'm going to take the train soon.
+[8.00s - 9.40s] I'm going to take the train soon.
+[9.40s - 10.48s] How dare you rob me!
+[10.48s - 11.48s] I'll teach you a lesson!
+[11.48s - 12.40s] I'll teach you a lesson!
+[12.40s - 14.00s] This ring is on the sky.
+[14.00s - 15.60s] It's rare to see a kiss.
+[15.60s - 16.40s] I'm a thief.
+[16.40s - 18.00s] I like to steal and rob.
+[18.00s - 19.00s] I'm a thief.
+[19.00s - 20.00s] Ha ha ha ha ha!
+[20.00s - 21.20s] I'm a thief.
+[21.20s - 23.20s] I'm a thief.
+[23.20s - 24.60s] Come on, let's go on robbing.
+[24.60s - 26.20s] I'm a thief.
+[26.20s - 28.80s] The G104 train should be here.
+[29.80s - 31.80s] Someone's robbing my bag.
+[35.80s - 36.80s] Is there a mistake?
+[36.80s - 38.80s] What time is it?
+[39.80s - 41.80s] I'm going to save people.
+[43.80s - 45.80s] I don't know if you're going to save people or not.
+[45.80s - 46.80s] Actually, I...
+[46.80s - 47.80s] Actually, I...
+[47.80s - 48.80s] Huh?
+[48.80s - 49.80s] Huh?
+[49.80s - 50.80s] Huh?
+[50.80s - 51.80s] I'm a farmer.
+[51.80s - 52.80s] I'm a farmer.
+[52.80s - 53.80s] I'm a farmer.
+[53.80s - 54.80s] I'm a farmer.
+[54.80s - 55.80s] I'm a farmer.
+[55.80s - 56.80s] Great!
+[56.80s - 57.80s] We're saved!
+[59.80s - 61.80s] I'll cut off your back.
+[62.80s - 64.80s] I'll cut off his back with this air gun.
+[65.80s - 66.80s] I suddenly smiled.
+[66.80s - 67.80s] Ha ha ha ha ha!
+[67.80s - 68.80s] A bunch of people are in a mess.
+[68.80s - 71.80s] I'll see who can keep you in this bag today.
+[75.80s - 77.80s] Three, two, one.
+[77.80s - 79.80s] What the hell are you?
+[79.80s - 81.80s] Actually, I'm a weightlifting professional at the PE school.
+[81.80s - 82.80s] Why didn't you tell me earlier?
+[82.80s - 84.80s] You didn't give me a chance.
+[84.80s - 85.80s] Great!
