@@ -39,8 +39,8 @@ def transcribe_translate(video_file, model_size="large-v2"):
                 phrase_start = word.start
             current_phrase.append(word.word)
 
-            # Group words into phrases of ~6 words for better subtitle readability
-            if len(current_phrase) >= 6 or word == segment.words[-1]:  
+            # Group words into phrases of ~3 words for better subtitle readability
+            if len(current_phrase) >= 3 or word == segment.words[-1]:  
                 transcript_data.append((" ".join(current_phrase), phrase_start, word.end))
                 current_phrase = []
                 phrase_start = None
