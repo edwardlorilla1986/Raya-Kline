@@ -1,38 +1,33 @@
-[0.00s - 1.64s] Mom, I'm going to take the train.
-[1.64s - 3.08s] Wait for me to go home for the New Year.
-[4.72s - 6.64s] What can I do for New Year's Eve?
-[6.64s - 7.64s] Oh, right.
-[9.52s - 10.56s] How dare you rob me?
-[10.56s - 11.52s] I'll teach you a lesson.
-[12.52s - 14.08s] This ring is in the sky.
-[14.08s - 15.68s] It's rare to see it.
-[15.68s - 17.12s] I like to think about it,
-[17.12s - 18.04s] so I'll teach you.
-[20.04s - 21.24s] Hurry up.
-[21.24s - 23.28s] I'm in the world.
-[23.28s - 24.60s] Come on, let's continue to think.
-[26.36s - 28.88s] The G104 train should be here.
-[29.68s - 31.08s] Someone is robbing my dad.
-[36.08s - 36.96s] Is there a mistake?
-[36.96s - 37.96s] What time is it?
-[40.32s - 41.68s] You're going to save people.
-[43.80s - 44.52s] I'm not the one who said it.
-[44.52s - 46.08s] Will you save people or not?
-[46.08s - 47.08s] Actually, I...
-[50.48s - 52.84s] Bird No. 3 is a migrant worker.
-[53.64s - 54.88s] I'm a native.
-[55.32s - 55.88s] Great.
-[55.88s - 56.64s] It's the native.
-[56.64s - 57.64s] We're saved.
-[59.88s - 62.16s] I'll cut off your back.
-[63.16s - 64.88s] I'll cut off his back with this air gun.
-[65.56s - 66.88s] I suddenly smiled.
-[67.88s - 69.08s] A bunch of people are in a mess.
-[69.08s - 69.88s] I think today
-[69.88s - 71.88s] no one can protect you.
-[75.36s - 77.36s] Three, two, one.
-[78.20s - 79.68s] What's wrong with you?
-[79.68s - 82.24s] Actually, I'm a weightlifting professional at the PE school.
-[82.24s - 83.24s] Why didn't you say so earlier?
-[83.24s - 84.72s] You didn't give me a chance.
-[84.72s - 85.88s] All right, I'm out.
+[0.00s - 1.52s] Mom, I'm going to the train station.
+[1.52s - 2.52s] Wait for me to come home for the New Year.
+[4.52s - 6.52s] I'm going to do something special tonight.
+[6.52s - 7.52s] Oh, right.
+[9.52s - 10.52s] Robbery of public security!
+[10.52s - 11.52s] Watch me!
+[12.52s - 15.52s] This ring is rare in the world.
+[15.52s - 18.52s] I'll teach you how to rob.
+[20.02s - 21.02s] Hurry up!
+[21.02s - 23.02s] I'm in the world.
+[23.02s - 24.52s] I'd better keep robbing.
+[26.52s - 28.52s] The G104 train should be here.
+[29.04s - 31.04s] Robbery of public security!
+[36.04s - 37.04s] Is there a mistake?
+[37.04s - 38.04s] What time is it?
+[40.04s - 41.04s] You're wrong!
+[44.04s - 46.04s] Do you know how to save people?
+[46.04s - 47.04s] Actually, I...
+[50.04s - 53.04s] Bird No. 3 is a migrant worker.
+[53.04s - 55.04s] I'm a native.
+[55.04s - 56.04s] That's great!
+[56.04s - 58.04s] We're saved!
+[59.04s - 62.04s] Watch me break your back!
+[63.04s - 65.04s] I'll break his back with this air gun.
+[65.04s - 67.04s] I suddenly smiled.
+[68.04s - 69.04s] You're a mess.
+[69.04s - 72.04s] I'll see who can keep you today.
+[75.04s - 77.04s] Three, two, one.
+[78.04s - 80.04s] What are you doing?
+[80.04s - 82.04s] Actually, I'm a weightlifting professional.
+[82.04s - 83.04s] Why didn't you tell me earlier?
+[83.04s - 85.04s] You didn't give me a chance.
+[85.04s - 86.04s] Let's go.
