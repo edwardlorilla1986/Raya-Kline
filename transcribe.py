@@ -3,7 +3,7 @@ import sys
 import subprocess
 import textwrap
 from faster_whisper import WhisperModel
-from moviepy.editor import VideoFileClip, TextClip, CompositeVideoClip, AudioFileClip, concatenate_audioclips
+from moviepy.editor import VideoFileClip, TextClip, CompositeVideoClip, AudioFileClip
 from gtts import gTTS
 
 # Function to extract audio from video
@@ -63,35 +63,19 @@ def transcribe_translate(video_file, model_size="large-v2"):
     os.remove(audio_file)  # Cleanup temp audio file
     return transcript_data
 
-# Function to generate TTS for each caption segment
+# Function to generate speech from captions
 def generate_tts_audio(transcript_data, output_audio_path="narration.mp3", lang="en"):
-    """Generates speech audio from subtitles and synchronizes with timestamps."""
-    print("🔊 Generating narration per caption...")
+    """Generates speech audio from the translated captions."""
+    print("🔊 Generating narration from subtitles...")
 
-    audio_clips = []
+    # Combine all text segments for TTS
+    full_text = " ".join([text for text, _, _ in transcript_data])
 
-    for idx, (text, start, end) in enumerate(transcript_data):
-        tts = gTTS(text, lang=lang)
-        segment_audio_path = f"tts_segment_{idx}.mp3"
-        tts.save(segment_audio_path)
+    # Convert text to speech
+    tts = gTTS(full_text, lang=lang)
+    tts.save(output_audio_path)
 
-        # Load the audio file and set it to play at the correct timestamp
-        audio_clip = AudioFileClip(segment_audio_path).set_start(start)
-        audio_clips.append(audio_clip)
-
-    # Concatenate all voice segments into one audio track
-    if audio_clips:
-        final_audio = concatenate_audioclips(audio_clips)
-        final_audio.write_audiofile(output_audio_path, codec="aac")
-
-        # Clean up temporary TTS files
-        for clip in audio_clips:
-            os.remove(clip.filename)
-        
-        return output_audio_path
-    else:
-        print("⚠️ No narration generated!")
-        return None
+    return output_audio_path
 
 # Function to add subtitles to the video
 def add_subtitles(video_path, transcript_data, output_path="video_with_subtitles.mp4"):
@@ -110,7 +94,7 @@ def add_subtitles(video_path, transcript_data, output_path="video_with_subtitles
     # Function to render wrapped text with auto-scaling
     def render_subtitle(txt):
         wrapped_text = "\n".join(textwrap.wrap(txt, width=max_chars_per_line))
-        return TextClip(wrapped_text, fontsize=font_size, color='white', stroke_color='what', stroke_width=2)
+        return TextClip(wrapped_text, fontsize=font_size, color='white', stroke_color='white', stroke_width=3)
 
     # Create subtitle clips
     subtitle_clips = []
@@ -131,18 +115,18 @@ def add_subtitles(video_path, transcript_data, output_path="video_with_subtitles
 
 # Function to replace original audio with generated narration
 def replace_audio(video_path, narration_audio, output_path="video_with_narration.mp4"):
-    """Replaces original audio with generated narration that matches subtitles."""
-    print("🎬 Replacing original audio with synchronized narration...")
+    """Replaces original audio with generated narration."""
+    print("🎬 Replacing original audio with narration...")
 
     # Load video and narration
     video = VideoFileClip(video_path)
     narration = AudioFileClip(narration_audio)
 
-    # Set narration as the new audio track
+    # Ensure narration matches video duration
     final_video = video.set_audio(narration)
     final_video.write_videofile(output_path, codec="libx264", fps=video.fps, audio_codec="aac")
 
-    print(f"✅ Video saved with synced narration and subtitles: {output_path}")
+    print(f"✅ Video saved with narration replacing original audio: {output_path}")
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
@@ -153,12 +137,11 @@ if __name__ == "__main__":
     transcript = transcribe_translate(video_path)
 
     if transcript:
-        # Generate TTS narration, synchronizing with timestamps
+        # Generate TTS narration
         narration_audio = generate_tts_audio(transcript)
 
-        if narration_audio:
-            # Replace original audio with synchronized narration
-            replace_audio(video_path, narration_audio)
+        # Replace original audio with narration
+        replace_audio(video_path, narration_audio)
 
-            # Add subtitles to the video
-            add_subtitles(video_path, transcript)
+        # Add subtitles to video
+        add_subtitles(video_path, transcript)
