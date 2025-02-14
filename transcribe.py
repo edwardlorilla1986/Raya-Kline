@@ -1,22 +1,34 @@
-
 import os
 import sys
 import subprocess
-from faster_whisper import WhisperModel
-from moviepy.editor import VideoFileClip, TextClip, CompositeVideoClip
-from moviepy.video.tools.subtitles import SubtitlesClip
 import textwrap
+from faster_whisper import WhisperModel
+from moviepy.editor import VideoFileClip, TextClip, CompositeVideoClip, AudioFileClip, CompositeAudioClip
+from gtts import gTTS
+from pydub import AudioSegment
+
 # Function to extract audio from video
 def extract_audio(video_path, audio_path="temp_audio.wav"):
-    command = f"ffmpeg -i {video_path} -ar 16000 -ac 1 -c:a pcm_s16le {audio_path} -y"
-    subprocess.run(command, shell=True, check=True)
+    """Extracts audio from the video using ffmpeg."""
+    if not os.path.exists(video_path):
+        print(f"❌ Error: Video file '{video_path}' not found.")
+        sys.exit(1)
+
+    command = f"ffmpeg -i {video_path} -ar 16000 -ac 1 -c:a pcm_s16le {audio_path} -y -loglevel error"
+    try:
+        subprocess.run(command, shell=True, check=True)
+    except subprocess.CalledProcessError:
+        print("❌ Error: Failed to extract audio. Ensure ffmpeg is installed.")
+        sys.exit(1)
+
     return audio_path
 
-# Function to transcribe and translate with timestamps
+# Function to transcribe and translate video audio
 def transcribe_translate(video_file, model_size="large-v2"):
+    """Transcribes and translates audio from Chinese to English with timestamps."""
     if not os.path.exists(video_file):
-        print(f"Error: File {video_file} not found.")
-        return
+        print(f"❌ Error: File '{video_file}' not found.")
+        return None
 
     print(f"🎙 Processing video: {video_file}")
 
@@ -24,12 +36,15 @@ def transcribe_translate(video_file, model_size="large-v2"):
     audio_file = extract_audio(video_file)
 
     # Load Faster Whisper model
-    model = WhisperModel(model_size)
+    try:
+        model = WhisperModel(model_size)
+    except Exception as e:
+        print(f"❌ Error loading Whisper model: {e}")
+        sys.exit(1)
 
-    # Transcribe & translate from Chinese to English with timestamps
+    # Transcribe & translate
     segments, _ = model.transcribe(audio_file, task="translate", language="zh", word_timestamps=True)
 
-    # Store transcription result with timestamps
     transcript_data = []
     current_phrase = []
     phrase_start = None
@@ -40,7 +55,7 @@ def transcribe_translate(video_file, model_size="large-v2"):
                 phrase_start = word.start
             current_phrase.append(word.word)
 
-            # Group words into phrases of ~6 words for better subtitle readability
+            # Group words into phrases of ~6 words for better readability
             if len(current_phrase) >= 6 or word == segment.words[-1]:  
                 transcript_data.append((" ".join(current_phrase), phrase_start, word.end))
                 current_phrase = []
@@ -49,12 +64,23 @@ def transcribe_translate(video_file, model_size="large-v2"):
     os.remove(audio_file)  # Cleanup temp audio file
     return transcript_data
 
-# Function to add subtitles to the video
-from moviepy.video.tools.subtitles import SubtitlesClip
-import textwrap
-from moviepy.editor import VideoFileClip, TextClip, CompositeVideoClip
+# Function to generate speech from captions
+def generate_tts_audio(transcript_data, output_audio_path="narration.mp3", lang="en"):
+    """Generates speech audio from the translated captions."""
+    print("🔊 Generating narration from subtitles...")
 
+    # Combine all text segments for TTS
+    full_text = " ".join([text for text, _, _ in transcript_data])
+
+    # Convert text to speech
+    tts = gTTS(full_text, lang=lang)
+    tts.save(output_audio_path)
+
+    return output_audio_path
+
+# Function to add subtitles to the video
 def add_subtitles(video_path, transcript_data, output_path="video_with_subtitles.mp4"):
+    """Overlays subtitles onto the video."""
     print("🎬 Adding responsive subtitles to video...")
 
     # Load video
@@ -66,13 +92,10 @@ def add_subtitles(video_path, transcript_data, output_path="video_with_subtitles
     # Set max characters per line based on video width
     max_chars_per_line = max(20, int(video.w / 30))  # Dynamically adjust wrapping width
 
-    # Adjust line spacing
-    line_spacing = int(font_size * 1.5)  
-
     # Function to render wrapped text with auto-scaling
     def render_subtitle(txt):
         wrapped_text = "\n".join(textwrap.wrap(txt, width=max_chars_per_line))
-        return TextClip(wrapped_text, fontsize=font_size, color='white', stroke_color='white', stroke_width=2)
+        return TextClip(wrapped_text, fontsize=font_size, color='white', stroke_color='white', stroke_width=3, bg_color='black')
 
     # Create subtitle clips
     subtitle_clips = []
@@ -89,7 +112,25 @@ def add_subtitles(video_path, transcript_data, output_path="video_with_subtitles
     # Save the final video
     final_video.write_videofile(output_path, codec="libx264", fps=video.fps, preset="medium", threads=4)
 
-    print(f"✅ Video saved with responsive subtitles: {output_path}")
+    print(f"✅ Video saved with subtitles: {output_path}")
+
+# Function to merge narration with video
+def merge_audio_with_video(video_path, narration_audio, output_path="video_with_narration.mp4"):
+    """Merges generated narration with the original video."""
+    print("🎬 Merging narration with video...")
+
+    # Load video and narration
+    video = VideoFileClip(video_path)
+    narration = AudioFileClip(narration_audio)
+
+    # Ensure narration matches video duration
+    final_audio = CompositeAudioClip([video.audio, narration])
+    
+    # Set the final audio to video
+    final_video = video.set_audio(final_audio)
+    final_video.write_videofile(output_path, codec="libx264", fps=video.fps, audio_codec="aac")
+
+    print(f"✅ Video saved with narration: {output_path}")
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
@@ -100,4 +141,11 @@ if __name__ == "__main__":
     transcript = transcribe_translate(video_path)
 
     if transcript:
+        # Generate TTS narration
+        narration_audio = generate_tts_audio(transcript)
+
+        # Merge narration with video
+        merge_audio_with_video(video_path, narration_audio)
+
+        # Add subtitles to video
         add_subtitles(video_path, transcript)
