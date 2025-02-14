@@ -1,60 +1,30 @@
-name: Run Captacity Processing
+name: Faster Whisper Transcription
 
 on:
   push:
     paths:
-      - 'videos/**.mp4'
+      - 'videos/*.mp4'
   workflow_dispatch:
+
 jobs:
   transcribe:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Install FFmpeg
-        run: sudo apt-get install -y ffmpeg  # Install FFmpeg
-
-      - name: Update ImageMagick policy
+      - name: Install Dependencies
         run: |
-          sudo apt-get install -y imagemagick
-          pip install moviepy==1.0.3
-          if [ -f /etc/ImageMagick-7/policy.xml ]; then
-            POLICY_FILE="/etc/ImageMagick-7/policy.xml"
-          elif [ -f /etc/ImageMagick-6/policy.xml ]; then
-            POLICY_FILE="/etc/ImageMagick-6/policy.xml"
-          else
-            echo "No ImageMagick policy.xml file found."
-            exit 1
-          fi
-          sudo sed -i 's/<policy domain="path" rights="none" pattern="@\*"/<!-- <policy domain="path" rights="none" pattern="@\*" -->/' $POLICY_FILE || true
-          sudo sed -i 's/<policy domain="coder" rights="none" pattern="PS"/<!-- <policy domain="coder" rights="none" pattern="PS" -->/' $POLICY_FILE || true
-          sudo sed -i 's/<policy domain="coder" rights="none" pattern="EPI"/<!-- <policy domain="coder" rights="none" pattern="EPI" -->/' $POLICY_FILE || true
-          sudo sed -i 's/<policy domain="coder" rights="none" pattern="URL"/<!-- <policy domain="coder" rights="none" pattern="URL" -->/' $POLICY_FILE || true
-          sudo sed -i 's/<policy domain="coder" rights="none" pattern="MVG"/<!-- <policy domain="coder" rights="none" pattern="MVG" -->/' $POLICY_FILE || true
-          sudo sed -i 's/<policy domain="coder" rights="none" pattern="MSL"/<!-- <policy domain="coder" rights="none" pattern="MSL" -->/' $POLICY_FILE || true
-          sudo sed -i 's/<policy domain="coder" rights="none" pattern="PDF"/<!-- <policy domain="coder" rights="none" pattern="PDF" -->/' $POLICY_FILE || true
+          sudo apt update && sudo apt install -y ffmpeg
+          pip install faster-whisper ffmpeg-python
 
-
-
-      - name: Install dependencies
-        run: |
-          pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
-          pip install git+https://github.com/openai/whisper.git
-
-      - name: Run Whisper on the latest video
+      - name: Transcribe and Translate Video
         run: |
           mkdir -p transcripts
           LATEST_VIDEO=$(ls -t videos/*.mp4 | head -n1)
-          whisper "$LATEST_VIDEO" --model large --language Chinese --task translate --output_dir transcripts
-      - name: Run Captacity on Video
-        run: python index.py
+          python transcribe.py "$LATEST_VIDEO"
 
-      - name: Upload Processed Video
-        uses: actions/upload-artifact@v4
-        with:
-          name: processed-video
-          path: my_short_with_captions.mp4
       - name: Commit and Push Transcription
         run: |
           git config --global user.email "action@github.com"
@@ -62,5 +32,3 @@ jobs:
           git add transcripts/*.txt || exit 0
           git commit -m "Added transcription for latest video" || exit 0
           git push
-
-
