@@ -49,29 +49,27 @@ def transcribe_translate(video_file, model_size="large-v2"):
 
 # Function to add subtitles to the video
 def add_subtitles(video_path, transcript_data, output_path="video_with_subtitles.mp4"):
-    print("🎬 Adding subtitles to video...")
+    print("🎬 Adding responsive subtitles to video...")
 
     # Load video
     video = VideoFileClip(video_path)
     subtitle_clips = []
 
     # Auto-scale font size based on video height
-    font_size = max(30, int(video.h * 0.06))  # Ensure font is large enough
+    font_size = max(24, int(video.h * 0.05))  # Adjust font size based on video resolution
 
-    # Check font availability
-    try:
-        sample_text = TextClip("Test", fontsize=font_size, color='white', stroke_color='black', stroke_width=2, font="Arial")
-        sample_text.close()
-    except Exception as e:
-        print("⚠️ Font issue detected! Using default font. Error:", str(e))
+    # Ensure text does not exceed width (wrap text dynamically)
+    max_chars_per_line = 40  # Adjust line width limit
+    line_spacing = int(font_size * 1.5)  # Auto spacing between lines
+
+    # Function to render wrapped text
+    def render_subtitle(txt):
+        wrapped_text = "\n".join(textwrap.wrap(txt, width=max_chars_per_line))
+        return TextClip(wrapped_text, fontsize=font_size, color='white', stroke_color='black', stroke_width=2)
 
     # Create subtitle clips
     for text, start, end in transcript_data:
-        subtitle = TextClip(
-            text, fontsize=font_size, color='white',
-            stroke_color='black', stroke_width=2, font="DejaVu-Sans"
-        ).set_position(("center", "bottom")).set_duration(end - start).set_start(start)
-
+        subtitle = render_subtitle(text).set_position(("center", "bottom")).set_duration(end - start).set_start(start)
         subtitle_clips.append(subtitle)
 
     if not subtitle_clips:
@@ -79,11 +77,11 @@ def add_subtitles(video_path, transcript_data, output_path="video_with_subtitles
 
     # Overlay subtitles on video
     final_video = CompositeVideoClip([video] + subtitle_clips)
-    
-    # Ensure final file format is compatible
+
+    # Save the final video
     final_video.write_videofile(output_path, codec="libx264", fps=video.fps, preset="medium", threads=4)
 
-    print(f"✅ Video saved with subtitles: {output_path}")
+    print(f"✅ Video saved with responsive subtitles: {output_path}")
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
