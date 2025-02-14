@@ -1,4 +1,5 @@
 import os
+import sys
 import subprocess
 from faster_whisper import Whisper
 
@@ -10,27 +11,36 @@ def extract_audio(video_path, audio_path="temp_audio.wav"):
 
 # Function to transcribe and translate
 def transcribe_translate(video_file, model_size="large-v2"):
-    # Extract audio from video
+    if not os.path.exists(video_file):
+        print(f"Error: File {video_file} not found.")
+        return
+
+    print(f"🎙 Processing video: {video_file}")
+    
+    # Extract audio
     audio_file = extract_audio(video_file)
 
     # Load Faster Whisper model
     model = Whisper(model_size)
 
-    # Transcribe and translate from Chinese to English
+    # Transcribe & translate from Chinese to English
     segments, _ = model.transcribe(audio_file, task="translate", language="zh")
 
     # Store transcription result
     transcript = "\n".join(segment.text for segment in segments)
+    transcript_file = f"transcripts/{os.path.basename(video_file).replace('.mp4', '_translated.txt')}"
 
-    # Save the transcript
-    transcript_file = video_file.replace(".mp4", "_translated.txt")
     with open(transcript_file, "w", encoding="utf-8") as f:
         f.write(transcript)
 
-    print(f"\n✅ Transcription saved: {transcript_file}")
+    print(f"✅ Transcription saved: {transcript_file}")
     os.remove(audio_file)  # Cleanup temp audio file
     return transcript_file
 
-# Run the script
 if __name__ == "__main__":
-    transcribe_translate("videos/1.mp4")
+    if len(sys.argv) < 2:
+        print("Usage: python transcribe.py <video_file>")
+        sys.exit(1)
+
+    video_path = sys.argv[1]
+    transcribe_translate(video_path)
