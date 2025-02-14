@@ -55,37 +55,35 @@ def add_subtitles(video_path, transcript_data, output_path="video_with_subtitles
     # Load video
     video = VideoFileClip(video_path)
 
-    # Auto-scale font size based on video dimensions
-    font_size = max(20, int(video.h * 0.05))  # Scale font size based on video height
-
-    # Set max characters per line based on video width
-    max_chars_per_line = max(20, int(video.w / 30))  # Dynamically adjust wrapping width
-
-    # Adjust line spacing
-    line_spacing = int(font_size * 1.5)  
+    # Dynamically scale font size based on video dimensions
+    font_size = max(20, int(min(video.h, video.w) * 0.05))  # Adjust font size based on the smaller dimension
+    max_chars_per_line = max(15, int(video.w / 35))  # Auto-wrap text based on video width
+    subtitle_margin_bottom = int(video.h * 0.08)  # Position subtitles dynamically above the bottom edge
 
     # Function to render text with overlay background
     def render_subtitle(txt):
         wrapped_text = "\n".join(textwrap.wrap(txt, width=max_chars_per_line))
 
-        # Create text clip (White text with black stroke)
+        # Create text clip (White text with black stroke for visibility)
         text_clip = TextClip(
-            wrapped_text, fontsize=font_size, color='white', stroke_color='white', stroke_width=3
+            wrapped_text, fontsize=font_size, color='white', stroke_color='white', stroke_width=2
         )
 
-        # Create a semi-transparent black background using ColorClip
-        bg_height = text_clip.h + 20  # Padding for better visibility
-        background = ColorClip(size=(video.w, bg_height), color=(0, 0, 0))  # Black overlay
-        background = background.set_opacity(0.6)  # Adjust transparency
+        # Dynamically calculate background height
+        bg_height = text_clip.h + int(font_size * 1.5)  # Add padding above and below text
+        background = ColorClip(size=(video.w, bg_height), color=(0, 0, 0)).set_opacity(0.6)  # Black overlay
 
-        # Overlay text on the background
-        subtitle = CompositeVideoClip([background, text_clip.set_position("center")])
+        # Position text inside background
+        subtitle = CompositeVideoClip([
+            background.set_position(("center", video.h - bg_height - subtitle_margin_bottom)),
+            text_clip.set_position(("center", video.h - bg_height - subtitle_margin_bottom))
+        ])
         return subtitle
 
     # Create subtitle clips
     subtitle_clips = []
     for text, start, end in transcript_data:
-        subtitle = render_subtitle(text).set_position(("center", "bottom")).set_duration(end - start).set_start(start)
+        subtitle = render_subtitle(text).set_duration(end - start).set_start(start)
         subtitle_clips.append(subtitle)
 
     if not subtitle_clips:
