@@ -1,7 +1,7 @@
 import os
 import sys
 import subprocess
-from faster_whisper import WhisperModel  # ✅ Correct import
+from faster_whisper import WhisperModel
 
 # Function to extract audio from video
 def extract_audio(video_path, audio_path="temp_audio.wav"):
@@ -9,7 +9,7 @@ def extract_audio(video_path, audio_path="temp_audio.wav"):
     subprocess.run(command, shell=True, check=True)
     return audio_path
 
-# Function to transcribe and translate
+# Function to transcribe and translate with timestamps
 def transcribe_translate(video_file, model_size="large-v2"):
     if not os.path.exists(video_file):
         print(f"Error: File {video_file} not found.")
@@ -21,19 +21,20 @@ def transcribe_translate(video_file, model_size="large-v2"):
     audio_file = extract_audio(video_file)
 
     # Load Faster Whisper model
-    model = WhisperModel(model_size)  # ✅ Corrected from Whisper()
+    model = WhisperModel(model_size)
 
-    # Transcribe & translate from Chinese to English
-    segments, _ = model.transcribe(audio_file, task="translate", language="zh")
+    # Transcribe & translate from Chinese to English with word-level timestamps
+    segments, _ = model.transcribe(audio_file, task="translate", language="zh", word_timestamps=True)
 
-    # Store transcription result
-    transcript = "\n".join(segment.text for segment in segments)
+    # Store transcription result with timestamps
     transcript_file = f"transcripts/{os.path.basename(video_file).replace('.mp4', '_translated.txt')}"
 
     with open(transcript_file, "w", encoding="utf-8") as f:
-        f.write(transcript)
+        for segment in segments:
+            for word in segment.words:
+                f.write(f"[{word.start:.2f}s - {word.end:.2f}s] {word.word}\n")
 
-    print(f"✅ Transcription saved: {transcript_file}")
+    print(f"✅ Transcription saved with timestamps: {transcript_file}")
     os.remove(audio_file)  # Cleanup temp audio file
     return transcript_file
 
