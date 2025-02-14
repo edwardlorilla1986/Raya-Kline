@@ -1,52 +1,38 @@
-[0.00s - 1.48s] Mom, I'm going to take the train soon.
-[1.48s - 2.80s] Wait for me to go home for New Year.
-[2.80s - 3.20s] I'm going to take the train soon.
-[3.20s - 3.84s] I'm going to take the train soon.
-[3.84s - 4.64s] I'm going to take the train soon.
-[4.64s - 6.64s] What can I do here?
-[6.64s - 7.64s] Oh, right.
-[7.64s - 8.00s] I'm going to take the train soon.
-[8.00s - 9.40s] I'm going to take the train soon.
-[9.40s - 10.48s] How dare you rob me!
-[10.48s - 11.48s] I'll teach you a lesson!
-[11.48s - 12.40s] I'll teach you a lesson!
+[0.00s - 1.60s] Mom, I'm going to take the train.
+[1.60s - 2.80s] Wait for me to go home for the New Year.
+[4.80s - 6.60s] What can I do here?
+[6.60s - 7.60s] Oh, right.
+[9.40s - 10.60s] How dare you rob me!
+[10.60s - 11.60s] I'll show you!
 [12.40s - 14.00s] This ring is on the sky.
 [14.00s - 15.60s] It's rare to see a kiss.
-[15.60s - 16.40s] I'm a thief.
-[16.40s - 18.00s] I like to steal and rob.
-[18.00s - 19.00s] I'm a thief.
-[19.00s - 20.00s] Ha ha ha ha ha!
-[20.00s - 21.20s] I'm a thief.
-[21.20s - 23.20s] I'm a thief.
-[23.20s - 24.60s] Come on, let's go on robbing.
-[24.60s - 26.20s] I'm a thief.
+[15.60s - 17.00s] I like little fish.
+[17.00s - 18.00s] I'll teach you.
+[20.00s - 21.20s] Come on.
+[21.20s - 23.20s] I'm in the world.
+[23.20s - 24.60s] Come on, let's keep robbing.
 [26.20s - 28.80s] The G104 train should be here.
-[29.80s - 31.80s] Someone's robbing my bag.
-[35.80s - 36.80s] Is there a mistake?
-[36.80s - 38.80s] What time is it?
-[39.80s - 41.80s] I'm going to save people.
-[43.80s - 45.80s] I don't know if you're going to save people or not.
-[45.80s - 46.80s] Actually, I...
-[46.80s - 47.80s] Actually, I...
-[47.80s - 48.80s] Huh?
-[48.80s - 49.80s] Huh?
-[49.80s - 50.80s] Huh?
-[50.80s - 51.80s] I'm a farmer.
-[51.80s - 52.80s] I'm a farmer.
-[52.80s - 53.80s] I'm a farmer.
-[53.80s - 54.80s] I'm a farmer.
-[54.80s - 55.80s] I'm a farmer.
-[55.80s - 56.80s] Great!
-[56.80s - 57.80s] We're saved!
-[59.80s - 61.80s] I'll cut off your back.
-[62.80s - 64.80s] I'll cut off his back with this air gun.
-[65.80s - 66.80s] I suddenly smiled.
-[66.80s - 67.80s] Ha ha ha ha ha!
-[67.80s - 68.80s] A bunch of people are in a mess.
-[68.80s - 71.80s] I'll see who can keep you in this bag today.
-[75.80s - 77.80s] Three, two, one.
-[77.80s - 79.80s] What the hell are you?
-[79.80s - 81.80s] Actually, I'm a weightlifting professional at the PE school.
-[81.80s - 82.80s] Why didn't you tell me earlier?
-[82.80s - 84.80s] You didn't give me a chance.
-[84.80s - 85.80s] Great!
+[30.00s - 31.60s] Come on, let's keep robbing.
+[36.60s - 37.60s] Is there a mistake?
+[37.60s - 38.60s] What time is it?
+[40.60s - 41.60s] I'm going to save people.
+[43.60s - 44.60s] Not me.
+[44.60s - 46.60s] Do you know how to save people?
+[46.60s - 47.60s] Actually, I...
+[50.60s - 51.60s] Don't hang around.
+[51.60s - 53.60s] It's a migrant worker.
+[53.60s - 55.60s] I'm a native.
+[55.60s - 56.60s] That's great.
+[56.60s - 57.60s] It's a native.
+[57.60s - 58.60s] We're saved.
+[60.60s - 62.60s] I'll break your back.
+[63.60s - 65.60s] I'll break his back.
+[65.60s - 67.60s] I suddenly smiled.
+[67.60s - 69.60s] It's a mess.
+[69.60s - 71.60s] I'll save you today.
+[75.60s - 77.60s] Three, two, one.
+[78.60s - 79.60s] What are you doing?
+[79.60s - 82.60s] I'm a weightlifting professional.
+[82.60s - 83.60s] Why didn't you tell me earlier?
+[83.60s - 85.60s] You didn't give me a chance.
+[85.60s - 86.60s] Dismissed.
