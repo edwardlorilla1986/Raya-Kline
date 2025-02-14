@@ -3,9 +3,8 @@ import sys
 import subprocess
 import textwrap
 from faster_whisper import WhisperModel
-from moviepy.editor import VideoFileClip, TextClip, CompositeVideoClip, AudioFileClip, CompositeAudioClip
+from moviepy.editor import VideoFileClip, TextClip, CompositeVideoClip, AudioFileClip
 from gtts import gTTS
-from pydub import AudioSegment
 
 # Function to extract audio from video
 def extract_audio(video_path, audio_path="temp_audio.wav"):
@@ -95,12 +94,12 @@ def add_subtitles(video_path, transcript_data, output_path="video_with_subtitles
     # Function to render wrapped text with auto-scaling
     def render_subtitle(txt):
         wrapped_text = "\n".join(textwrap.wrap(txt, width=max_chars_per_line))
-        return TextClip(wrapped_text, fontsize=font_size, color='white', stroke_color='white', stroke_width=3, bg_color='black')
+        return TextClip(wrapped_text, fontsize=font_size, color='white', stroke_color='black', stroke_width=2, bg_color='black')
 
     # Create subtitle clips
     subtitle_clips = []
     for text, start, end in transcript_data:
-        subtitle = render_subtitle(text).set_position(("center", "top")).set_duration(end - start).set_start(start)
+        subtitle = render_subtitle(text).set_position(("center", "bottom")).set_duration(end - start).set_start(start)
         subtitle_clips.append(subtitle)
 
     if not subtitle_clips:
@@ -114,23 +113,20 @@ def add_subtitles(video_path, transcript_data, output_path="video_with_subtitles
 
     print(f"✅ Video saved with subtitles: {output_path}")
 
-# Function to merge narration with video
-def merge_audio_with_video(video_path, narration_audio, output_path="video_with_narration.mp4"):
-    """Merges generated narration with the original video."""
-    print("🎬 Merging narration with video...")
+# Function to replace original audio with generated narration
+def replace_audio(video_path, narration_audio, output_path="video_with_narration.mp4"):
+    """Replaces original audio with generated narration."""
+    print("🎬 Replacing original audio with narration...")
 
     # Load video and narration
     video = VideoFileClip(video_path)
     narration = AudioFileClip(narration_audio)
 
     # Ensure narration matches video duration
-    final_audio = CompositeAudioClip([video.audio, narration])
-    
-    # Set the final audio to video
-    final_video = video.set_audio(final_audio)
+    final_video = video.set_audio(narration)
     final_video.write_videofile(output_path, codec="libx264", fps=video.fps, audio_codec="aac")
 
-    print(f"✅ Video saved with narration: {output_path}")
+    print(f"✅ Video saved with narration replacing original audio: {output_path}")
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
@@ -144,8 +140,8 @@ if __name__ == "__main__":
         # Generate TTS narration
         narration_audio = generate_tts_audio(transcript)
 
-        # Merge narration with video
-        merge_audio_with_video(video_path, narration_audio)
+        # Replace original audio with narration
+        replace_audio(video_path, narration_audio)
 
         # Add subtitles to video
         add_subtitles(video_path, transcript)
