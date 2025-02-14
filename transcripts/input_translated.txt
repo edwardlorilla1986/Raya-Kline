@@ -1,219 +1,39 @@
-[0.00s - 0.26s]  Mom,
-[0.44s - 0.56s]  I
-[0.56s - 0.58s] 'm
-[0.58s - 0.82s]  going
-[0.82s - 0.84s]  to
-[0.84s - 0.96s]  take
-[0.96s - 1.00s]  the
-[1.00s - 1.22s]  train.
-[1.52s - 1.84s]  Wait
-[1.84s - 1.86s]  for
-[1.86s - 1.94s]  me
-[1.94s - 1.96s]  to
-[1.96s - 2.02s]  go
-[2.02s - 2.20s]  home
-[2.20s - 2.26s]  for
-[2.26s - 2.38s]  the
-[2.38s - 2.40s]  New
-[2.40s - 2.40s]  Year.
-[4.58s - 5.02s]  What
-[5.02s - 5.02s]  can
-[5.02s - 5.10s]  I
-[5.10s - 6.26s]  do
-[6.26s - 6.28s]  here?
-[6.58s - 6.84s]  Oh,
-[6.92s - 7.30s]  right.
-[9.42s - 9.66s]  How
-[9.66s - 9.70s]  dare
-[9.70s - 9.82s]  you
-[9.82s - 10.12s]  rob
-[10.12s - 10.42s]  me!
-[10.42s - 10.78s]  I
-[10.78s - 10.92s] 'll
-[10.92s - 11.02s]  teach
-[11.02s - 11.12s]  you
-[11.12s - 11.28s]  a
-[11.28s - 11.28s]  lesson!
-[12.22s - 12.66s]  This
-[12.66s - 12.92s]  ring
-[12.92s - 13.10s]  is
-[13.10s - 13.10s]  on
-[13.10s - 13.26s]  the
-[13.26s - 13.48s]  sky.
-[13.98s - 14.34s]  It
-[14.34s - 14.40s] 's
-[14.40s - 14.72s]  rare
-[14.72s - 14.72s]  to
-[14.72s - 15.00s]  see
-[15.00s - 15.30s]  it
-[15.30s - 15.48s]  in
-[15.48s - 15.48s]  the
-[15.48s - 15.48s]  world.
-[15.58s - 15.92s]  I
-[15.92s - 16.60s]  like
-[16.60s - 16.88s]  to
-[16.88s - 16.88s]  think
-[16.88s - 16.90s]  about
-[16.90s - 17.02s]  it.
-[17.04s - 17.12s]  I
-[17.12s - 17.22s] 'll
-[17.22s - 17.40s]  teach
-[17.40s - 17.66s]  you.
-[19.86s - 20.30s]  Hurry
-[20.30s - 20.46s]  up!
-[21.04s - 21.42s]  I
-[21.42s - 21.66s] 'm
-[21.66s - 21.80s]  in
-[21.80s - 22.12s]  the
-[22.12s - 22.30s]  world.
-[23.08s - 23.52s]  Come
-[23.52s - 23.58s]  on,
-[23.64s - 23.88s]  let
-[23.88s - 23.88s] 's
-[23.88s - 24.06s]  keep
-[24.06s - 24.32s]  rob
-[24.32s - 24.32s] bing.
-[26.08s - 26.52s]  G
-[26.52s - 26.96s] 10
-[26.96s - 27.28s] 4
-[27.28s - 27.58s]  train.
-[27.86s - 27.96s]  It
-[27.96s - 28.08s]  should
-[28.08s - 28.28s]  be
-[28.28s - 28.52s]  here.
-[28.82s - 29.04s]  Come
-[29.04s - 29.14s]  on.
-[30.00s - 30.08s]  Come
-[30.08s - 30.10s]  on,
-[30.10s - 30.22s]  let
-[30.22s - 30.22s] 's
-[30.22s - 30.26s]  keep
-[30.26s - 30.30s]  rob
-[30.30s - 30.30s] bing.
-[35.94s - 36.30s]  Are
-[36.30s - 36.36s]  you
-[36.36s - 36.76s]  kidding
-[36.76s - 36.88s]  me?
-[37.00s - 37.14s]  What
-[37.14s - 37.54s]  time
-[37.54s - 37.58s]  is
-[37.58s - 37.62s]  it?
-[40.20s - 40.56s]  You
-[40.56s - 40.70s] 're
-[40.70s - 40.80s]  going
-[40.80s - 40.80s]  to
-[40.80s - 40.94s]  save
-[40.94s - 41.16s]  people.
-[43.64s - 44.00s]  I
-[44.00s - 44.00s] 'm
-[44.00s - 44.00s]  not
-[44.00s - 44.18s]  the
-[44.18s - 44.18s]  one
-[44.18s - 44.18s]  who
-[44.18s - 44.28s]  said
-[44.28s - 44.60s]  it.
-[44.60s - 44.68s]  Are
-[44.68s - 44.76s]  you
-[44.76s - 45.18s]  going
-[45.18s - 45.24s]  to
-[45.24s - 45.46s]  save
-[45.46s - 45.62s]  people
-[45.62s - 45.66s]  or
-[45.66s - 45.66s]  not?
-[46.16s - 46.52s]  Actually,
-[46.64s - 46.88s]  I
-[46.88s - 47.28s] ...
-[50.46s - 50.82s]  Don
-[50.82s - 50.82s] 't
-[50.82s - 50.88s]  be
-[50.88s - 51.14s]  a
-[51.14s - 51.28s]  fool.
-[51.38s - 51.64s]  It
-[51.64s - 51.64s] 's
-[51.64s - 51.78s]  the
-[51.78s - 51.88s]  migrant
-[51.88s - 52.06s]  worker.
-[53.46s - 53.82s]  I
-[53.82s - 53.94s] 'm
-[53.94s - 53.98s]  a
-[53.98s - 54.14s]  native.
-[55.20s - 55.56s]  Great.
-[55.86s - 56.06s]  It
-[56.06s - 56.06s] 's
-[56.06s - 56.24s]  the
-[56.24s - 56.32s]  native.
-[56.54s - 56.84s]  We
-[56.84s - 57.04s] 're
-[57.04s - 57.24s]  saved.
-[60.00s - 60.40s]  I
-[60.40s - 60.56s] 'm
-[60.56s - 60.84s]  going
-[60.84s - 60.84s]  to
-[60.84s - 61.24s]  cut
-[61.24s - 61.34s]  off
-[61.34s - 61.48s]  your
-[61.48s - 61.72s]  back.
-[63.04s - 63.52s]  I
-[63.52s - 63.56s] 'm
-[63.56s - 63.74s]  going
-[63.74s - 63.80s]  to
-[63.80s - 64.34s]  cut
-[64.34s - 64.48s]  off
-[64.48s - 64.54s]  his
-[64.54s - 64.78s]  back.
-[65.48s - 65.96s]  I
-[65.96s - 66.18s]  suddenly
-[66.18s - 66.86s]  smiled.
-[67.90s - 68.38s]  A
-[68.38s - 68.58s]  bunch
-[68.58s - 68.62s]  of
-[68.62s - 68.70s]  people
-[68.70s - 68.78s]  are
-[68.78s - 69.02s]  like
-[69.02s - 69.24s]  a
-[69.24s - 69.24s]  mess.
-[69.34s - 69.52s]  I
-[69.52s - 69.72s]  think
-[69.72s - 70.00s]  today
-[70.00s - 70.42s]  Who
-[70.42s - 70.56s]  can
-[70.56s - 70.92s]  protect
-[70.92s - 71.20s]  you?
-[75.38s - 75.86s]  Three,
-[76.28s - 76.70s]  two,
-[77.06s - 77.38s]  one.
-[78.30s - 78.68s]  What
-[78.68s - 78.68s]  the
-[78.68s - 78.86s]  hell
-[78.86s - 79.12s]  are
-[79.12s - 79.38s]  you?
-[79.74s - 80.18s]  Actually,
-[80.30s - 80.36s]  I
-[80.36s - 80.44s] 'm
-[80.44s - 80.68s]  a
-[80.68s - 81.56s]  weight
-[81.56s - 81.64s] lifting
-[81.64s - 81.92s]  professional
-[81.92s - 81.92s]  at
-[81.92s - 81.92s]  the
-[81.92s - 81.92s]  PE
-[81.92s - 81.92s]  school.
-[82.42s - 82.90s]  Why
-[82.90s - 83.04s]  didn
-[83.04s - 83.04s] 't
-[83.04s - 83.04s]  you
-[83.04s - 83.28s]  tell
-[83.28s - 83.30s]  me
-[83.30s - 83.38s]  earlier?
-[83.54s - 83.74s]  You
-[83.74s - 83.96s]  didn
-[83.96s - 83.96s] 't
-[83.96s - 84.10s]  give
-[84.10s - 84.22s]  me
-[84.22s - 84.28s]  a
-[84.28s - 84.60s]  chance.
-[84.98s - 85.24s]  Come
-[85.24s - 85.44s]  on,
-[85.52s - 85.74s]  let
-[85.74s - 85.74s] 's
-[85.74s - 85.74s]  go.
+ Mom, I'm going to take the train.
+ Wait for me to go home for the New Year.
+ What can I do in my spare time?
+ Oh, right.
+ How dare you rob me?
+ I'll teach you a lesson.
+ This ring is in the sky.
+ It's rare to see a kiss.
+ I like to think about it.
+ I'll teach you.
+ Hurry up.
+ I'm in the world.
+ Come on, let's keep robbing.
+ The G104 train should be here.
+ Someone is robbing my bag.
+ Is there a mistake?
+ What time is it?
+ You're going to save people.
+ I'm not the one who said it.
+ Will you save people or not?
+ Actually, I...
+ Bird No. 3.
+ It's the migrant worker.
+ I'm a native.
+ That's great.
+ It's the native.
+ We're saved.
+ I'll cut off your back.
+ I'll cut off his back with this air gun.
+ I suddenly smiled.
+ A bunch of people are in a mess.
+ I think today
+ who can keep you in the bag?
+ Three, two, one.
+ What's wrong with you?
+ Actually, I'm a weightlifting professional at the PE school.
+ Why didn't you say so earlier?
+ You didn't give me a chance.
+ All right, I'm out.
