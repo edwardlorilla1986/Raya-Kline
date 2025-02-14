@@ -1,48 +1,38 @@
-[0.00s - 1.60s] Mom, I'm going to take the train.
-[1.60s - 3.20s] Wait for me to go home for the New Year.
-[3.20s - 4.80s] Oh, my god.
-[4.80s - 6.80s] What can I do here?
-[6.80s - 7.80s] Oh, right.
-[7.80s - 9.40s] The next day
-[9.40s - 10.60s] How dare you rob me in public?
-[10.60s - 11.60s] I'll show you.
-[11.60s - 12.40s] What?
-[12.40s - 14.00s] This ring is on the sky.
-[14.00s - 15.60s] It's rare to see a kiss.
-[15.60s - 18.00s] I like to be naughty.
-[18.00s - 19.00s] Ha ha ha ha.
-[19.00s - 20.00s] Ha ha ha ha.
-[20.00s - 21.20s] Come on, come on.
-[21.20s - 23.20s] I'm in the world.
-[23.20s - 24.60s] Come on, let's go on.
-[24.60s - 26.20s] Oh, my god.
-[26.20s - 28.80s] The G104 train should be here.
-[29.60s - 31.00s] Someone's robbing the bag.
-[36.00s - 36.80s] Is there a mistake?
-[36.80s - 38.00s] What time is it?
-[40.20s - 41.60s] We're going to save people.
-[43.60s - 44.40s] I'm not saying
-[44.40s - 46.00s] Will you save people or not?
-[46.00s - 47.00s] Actually, I...
-[50.40s - 51.40s] Bird in the hangar
-[51.40s - 52.80s] It's the migrant worker.
-[53.60s - 54.80s] I'm a native professional.
-[55.20s - 55.80s] That's great.
-[55.80s - 56.60s] It's the native brother.
-[56.60s - 57.60s] We're saved.
-[59.80s - 62.00s] I'll break your back.
-[63.00s - 64.80s] Take this wall and break his back.
-[65.40s - 66.80s] I suddenly smiled.
-[66.80s - 67.80s] Ha ha ha ha.
-[67.80s - 69.00s] A bunch of people are like a mess.
-[69.00s - 69.80s] I think today
-[69.80s - 71.80s] Who can keep you in this bag?
-[75.40s - 77.20s] Three, two, one.
-[78.20s - 78.80s] What the hell?
-[78.80s - 79.60s] What's the matter with you?
-[79.60s - 82.20s] Actually, I'm a sports major.
-[82.20s - 83.20s] Why didn't you say so?
-[83.20s - 84.60s] You didn't give me a chance.
-[84.60s - 85.80s] All right, all right.
-[85.80s - 87.60s] Ha ha ha ha.
-[87.60s - 88.60s] Ha ha ha ha.
+[0.00s - 1.64s] Mom, I'm going to take the train.
+[1.64s - 3.08s] Wait for me to go home for the New Year.
+[4.72s - 6.64s] What can I do for New Year's Eve?
+[6.64s - 7.64s] Oh, right.
+[9.52s - 10.56s] How dare you rob me?
+[10.56s - 11.52s] I'll teach you a lesson.
+[12.52s - 14.08s] This ring is in the sky.
+[14.08s - 15.68s] It's rare to see it.
+[15.68s - 17.12s] I like to think about it,
+[17.12s - 18.04s] so I'll teach you.
+[20.04s - 21.24s] Hurry up.
+[21.24s - 23.28s] I'm in the world.
+[23.28s - 24.60s] Come on, let's continue to think.
+[26.36s - 28.88s] The G104 train should be here.
+[29.68s - 31.08s] Someone is robbing my dad.
+[36.08s - 36.96s] Is there a mistake?
+[36.96s - 37.96s] What time is it?
+[40.32s - 41.68s] You're going to save people.
+[43.80s - 44.52s] I'm not the one who said it.
+[44.52s - 46.08s] Will you save people or not?
+[46.08s - 47.08s] Actually, I...
+[50.48s - 52.84s] Bird No. 3 is a migrant worker.
+[53.64s - 54.88s] I'm a native.
+[55.32s - 55.88s] Great.
+[55.88s - 56.64s] It's the native.
+[56.64s - 57.64s] We're saved.
+[59.88s - 62.16s] I'll cut off your back.
+[63.16s - 64.88s] I'll cut off his back with this air gun.
+[65.56s - 66.88s] I suddenly smiled.
+[67.88s - 69.08s] A bunch of people are in a mess.
+[69.08s - 69.88s] I think today
+[69.88s - 71.88s] no one can protect you.
+[75.36s - 77.36s] Three, two, one.
+[78.20s - 79.68s] What's wrong with you?
+[79.68s - 82.24s] Actually, I'm a weightlifting professional at the PE school.
+[82.24s - 83.24s] Why didn't you say so earlier?
+[83.24s - 84.72s] You didn't give me a chance.
+[84.72s - 85.88s] All right, I'm out.
