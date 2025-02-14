@@ -52,6 +52,10 @@ def transcribe_translate(video_file, model_size="large-v2"):
     print(f"✅ Transcript saved: {transcript_file}")
     return transcript_data, transcript_file
 
+from moviepy.video.tools.subtitles import SubtitlesClip
+import textwrap
+from moviepy.editor import VideoFileClip, TextClip, CompositeVideoClip, ColorClip
+
 def add_subtitles(video_path, transcript_data, output_path="video_with_subtitles.mp4"):
     print("🎬 Adding responsive subtitles with background to video...")
 
@@ -101,6 +105,7 @@ def add_subtitles(video_path, transcript_data, output_path="video_with_subtitles
     final_video.write_videofile(output_path, codec="libx264", fps=video.fps, preset="medium", threads=4)
 
     print(f"✅ Video saved with responsive subtitles: {output_path}")
+
 
 
 if __name__ == "__main__":
