@@ -56,17 +56,32 @@ def add_subtitles(video_path, transcript_data, output_path="video_with_subtitles
     subtitle_clips = []
 
     # Auto-scale font size based on video height
-    font_size = max(24, int(video.h * 0.05))
+    font_size = max(30, int(video.h * 0.06))  # Ensure font is large enough
+
+    # Check font availability
+    try:
+        sample_text = TextClip("Test", fontsize=font_size, color='white', stroke_color='black', stroke_width=2, font="Arial")
+        sample_text.close()
+    except Exception as e:
+        print("⚠️ Font issue detected! Using default font. Error:", str(e))
 
     # Create subtitle clips
     for text, start, end in transcript_data:
-        subtitle = TextClip(text, fontsize=font_size, color='white', stroke_color='black', stroke_width=2)
-        subtitle = subtitle.set_position(("center", "bottom")).set_duration(end - start).set_start(start)
+        subtitle = TextClip(
+            text, fontsize=font_size, color='white',
+            stroke_color='black', stroke_width=2, font="DejaVu-Sans"
+        ).set_position(("center", "bottom")).set_duration(end - start).set_start(start)
+
         subtitle_clips.append(subtitle)
+
+    if not subtitle_clips:
+        print("⚠️ No subtitle clips were generated! Check transcription output.")
 
     # Overlay subtitles on video
     final_video = CompositeVideoClip([video] + subtitle_clips)
-    final_video.write_videofile(output_path, codec="libx264", fps=video.fps)
+    
+    # Ensure final file format is compatible
+    final_video.write_videofile(output_path, codec="libx264", fps=video.fps, preset="medium", threads=4)
 
     print(f"✅ Video saved with subtitles: {output_path}")
 
