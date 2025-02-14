@@ -1,14 +1,7 @@
 import os
 import sys
 import subprocess
-import faster_whisper
-
-
-# Check if the library is accessible
-print(f"Faster Whisper Version: {faster_whisper.__version__}")
-
-# Load the model
-model = Whisper("large-v2")
+from faster_whisper import WhisperModel  # ✅ Correct import
 
 # Function to extract audio from video
 def extract_audio(video_path, audio_path="temp_audio.wav"):
@@ -23,12 +16,12 @@ def transcribe_translate(video_file, model_size="large-v2"):
         return
 
     print(f"🎙 Processing video: {video_file}")
-    
+
     # Extract audio
     audio_file = extract_audio(video_file)
 
     # Load Faster Whisper model
-    model = Whisper(model_size)
+    model = WhisperModel(model_size)  # ✅ Corrected from Whisper()
 
     # Transcribe & translate from Chinese to English
     segments, _ = model.transcribe(audio_file, task="translate", language="zh")
