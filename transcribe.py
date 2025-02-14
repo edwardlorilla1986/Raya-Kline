@@ -49,28 +49,34 @@ def transcribe_translate(video_file, model_size="large-v2"):
     return transcript_data
 
 # Function to add subtitles to the video
+from moviepy.video.tools.subtitles import SubtitlesClip
+import textwrap
+from moviepy.editor import VideoFileClip, TextClip, CompositeVideoClip
+
 def add_subtitles(video_path, transcript_data, output_path="video_with_subtitles.mp4"):
     print("🎬 Adding responsive subtitles to video...")
 
     # Load video
     video = VideoFileClip(video_path)
-    subtitle_clips = []
 
-    # Auto-scale font size based on video height
-    font_size = max(24, int(video.h * 0.05))  # Adjust font size based on video resolution
+    # Auto-scale font size based on both width and height
+    font_size = max(20, int(min(video.h, video.w) * 0.05))  # Scale based on the smaller dimension
 
-    # Ensure text does not exceed width (wrap text dynamically)
-    max_chars_per_line = 40  # Adjust line width limit
-    line_spacing = int(font_size * 1.5)  # Auto spacing between lines
+    # Set max characters per line based on video width
+    max_chars_per_line = max(20, int(video.w / 30))  # Dynamically adjust wrapping width
 
-    # Function to render wrapped text
+    # Adjust line spacing
+    line_spacing = int(font_size * 1.5)  
+
+    # Function to render wrapped text with auto-scaling
     def render_subtitle(txt):
         wrapped_text = "\n".join(textwrap.wrap(txt, width=max_chars_per_line))
         return TextClip(wrapped_text, fontsize=font_size, color='white', stroke_color='black', stroke_width=2)
 
     # Create subtitle clips
+    subtitle_clips = []
     for text, start, end in transcript_data:
-        subtitle = render_subtitle(text).set_position(("center", "bottom")).set_duration(end - start).set_start(start)
+        subtitle = render_subtitle(text).set_position(("center", "center")).set_duration(end - start).set_start(start)
         subtitle_clips.append(subtitle)
 
     if not subtitle_clips:
