@@ -18,7 +18,7 @@ jobs:
         run: |
           sudo apt update && sudo apt install -y ffmpeg
           pip install --upgrade pip
-          pip install gtts pydub
+          pip install gtts pydub elevenlabs
           sudo apt-get install -y imagemagick
           pip install --no-cache-dir --force-reinstall faster-whisper ffmpeg-python moviepy==1.0.3
       - name: Update ImageMagick policy
