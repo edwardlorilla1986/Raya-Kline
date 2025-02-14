@@ -29,9 +29,20 @@ def transcribe_translate(video_file, model_size="large-v2"):
 
     # Store transcription result with timestamps
     transcript_data = []
+    current_phrase = []
+    phrase_start = None
+
     for segment in segments:
         for word in segment.words:
-            transcript_data.append((word.start, word.end, word.word))
+            if phrase_start is None:
+                phrase_start = word.start
+            current_phrase.append(word.word)
+
+            # Group words into phrases of ~6 words for better subtitle readability
+            if len(current_phrase) >= 6 or word == segment.words[-1]:  
+                transcript_data.append((" ".join(current_phrase), phrase_start, word.end))
+                current_phrase = []
+                phrase_start = None
 
     os.remove(audio_file)  # Cleanup temp audio file
     return transcript_data
@@ -44,11 +55,14 @@ def add_subtitles(video_path, transcript_data, output_path="video_with_subtitles
     video = VideoFileClip(video_path)
     subtitle_clips = []
 
+    # Auto-scale font size based on video height
+    font_size = max(24, int(video.h * 0.05))
+
     # Create subtitle clips
-    for start, end, word in transcript_data:
-        text = TextClip(word, fontsize=40, color='white', bg_color='black')
-        text = text.set_position(("center", "bottom")).set_start(start).set_end(end)
-        subtitle_clips.append(text)
+    for text, start, end in transcript_data:
+        subtitle = TextClip(text, fontsize=font_size, color='white', stroke_color='black', stroke_width=2)
+        subtitle = subtitle.set_position(("center", "bottom")).set_duration(end - start).set_start(start)
+        subtitle_clips.append(subtitle)
 
     # Overlay subtitles on video
     final_video = CompositeVideoClip([video] + subtitle_clips)
