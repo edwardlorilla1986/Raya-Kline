@@ -67,7 +67,7 @@ def add_subtitles(video_path, transcript_data, output_path="video_with_subtitles
     stroke_color = "black"
     stroke_width = 3
     bg_opacity = 0.6
-    font_style = "DejaVu-Sans"  # Change if Arial is not installed
+    font_style = "Arial"  # Change if Arial is not installed
 
     def render_subtitle(txt, start, end):
         wrapped_text = "\n".join(textwrap.wrap(txt, width=max_chars_per_line))
