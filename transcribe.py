@@ -12,6 +12,7 @@ def extract_audio(video_path, audio_path="temp_audio.wav"):
     return audio_path
 
 # Function to transcribe and translate with timestamps
+# Function to transcribe and translate with timestamps
 def transcribe_translate(video_file, model_size="large-v2"):
     if not os.path.exists(video_file):
         print(f"Error: File {video_file} not found.")
@@ -39,14 +40,15 @@ def transcribe_translate(video_file, model_size="large-v2"):
                 phrase_start = word.start
             current_phrase.append(word.word)
 
-            # Group words into phrases of ~3 words for better subtitle readability
-            if len(current_phrase) >= 3 or word == segment.words[-1]:  
+            # Group words into phrases of ~6 words for better subtitle readability
+            if len(current_phrase) >= 6 or word == segment.words[-1]:  
                 transcript_data.append((" ".join(current_phrase), phrase_start, word.end))
                 current_phrase = []
                 phrase_start = None
 
     os.remove(audio_file)  # Cleanup temp audio file
     return transcript_data
+
 
 # Function to add subtitles with overlay background
 def add_subtitles(video_path, transcript_data, output_path="video_with_subtitles.mp4"):
