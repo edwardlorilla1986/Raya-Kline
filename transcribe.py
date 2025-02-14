@@ -3,7 +3,8 @@ import sys
 import subprocess
 from faster_whisper import WhisperModel
 from moviepy.editor import VideoFileClip, TextClip, CompositeVideoClip
-
+from moviepy.video.tools.subtitles import SubtitlesClip
+import textwrap
 # Function to extract audio from video
 def extract_audio(video_path, audio_path="temp_audio.wav"):
     command = f"ffmpeg -i {video_path} -ar 16000 -ac 1 -c:a pcm_s16le {audio_path} -y"
