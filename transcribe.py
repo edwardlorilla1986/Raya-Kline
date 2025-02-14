@@ -53,6 +53,10 @@ from moviepy.video.tools.subtitles import SubtitlesClip
 import textwrap
 from moviepy.editor import VideoFileClip, TextClip, CompositeVideoClip
 
+from moviepy.video.tools.subtitles import SubtitlesClip
+import textwrap
+from moviepy.editor import VideoFileClip, TextClip, CompositeVideoClip
+
 def add_subtitles(video_path, transcript_data, output_path="video_with_subtitles.mp4"):
     print("🎬 Adding responsive subtitles to video...")
 
@@ -76,7 +80,7 @@ def add_subtitles(video_path, transcript_data, output_path="video_with_subtitles
     # Create subtitle clips
     subtitle_clips = []
     for text, start, end in transcript_data:
-        subtitle = render_subtitle(text).set_position(("center", "center")).set_duration(end - start).set_start(start)
+        subtitle = render_subtitle(text).set_position(("center", "bottom")).set_duration(end - start).set_start(start)
         subtitle_clips.append(subtitle)
 
     if not subtitle_clips:
@@ -89,6 +93,7 @@ def add_subtitles(video_path, transcript_data, output_path="video_with_subtitles
     final_video.write_videofile(output_path, codec="libx264", fps=video.fps, preset="medium", threads=4)
 
     print(f"✅ Video saved with responsive subtitles: {output_path}")
+
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
