@@ -52,7 +52,6 @@ def transcribe_translate(video_file, model_size="large-v2"):
     print(f"✅ Transcript saved: {transcript_file}")
     return transcript_data, transcript_file
 
-
 def add_subtitles(video_path, transcript_data, output_path="video_with_subtitles.mp4"):
     print("🎬 Adding responsive subtitles with background to video...")
 
@@ -60,29 +59,32 @@ def add_subtitles(video_path, transcript_data, output_path="video_with_subtitles
     video = VideoFileClip(video_path)
 
     # Auto-scale font size based on both width and height
-    font_size = max(20, int(min(video.h, video.w) * 0.05))  # Scale based on the smaller dimension
+    font_size = max(24, int(min(video.h, video.w) * 0.05))  # Scale based on the smaller dimension
 
     # Set max characters per line based on video width
     max_chars_per_line = max(20, int(video.w / 30))  # Dynamically adjust wrapping width
 
     # Subtitle position and background height calculation
-    subtitle_y_position = int(video.h * 0.85)  # Keep subtitles at 85% of screen height
     bg_height = int(font_size * 2)  # Adjust based on font size
+    subtitle_y_position = int(video.h * 0.85)  # Position subtitles slightly above bottom
 
     # Function to render wrapped text with background
     def render_subtitle(txt, start, end):
         wrapped_text = "\n".join(textwrap.wrap(txt, width=max_chars_per_line))
 
+        # Debug: Print subtitle details
+        print(f"🔤 Subtitle: '{wrapped_text}' from {start:.2f}s to {end:.2f}s")
+
+        # Create black background (50% opacity)
+        bg_clip = ColorClip(
+            size=(video.w, bg_height), color=(0, 0, 0)  # Black background
+        ).set_opacity(0.5).set_duration(end - start).set_start(start).set_position(("center", "bottom"))
+
         # Create text clip
         text_clip = TextClip(
             wrapped_text, fontsize=font_size, color='white',
-            stroke_color='black', stroke_width=2
-        ).set_duration(end - start).set_start(start).set_position(("center", subtitle_y_position))
-
-        # Create black background (50% transparent)
-        bg_clip = ColorClip(
-            size=(video.w, bg_height), color=(0, 0, 0)  # Black background
-        ).set_opacity(0.5).set_duration(end - start).set_start(start).set_position(("center", subtitle_y_position))
+            stroke_color='black', stroke_width=2, font="Arial"
+        ).set_duration(end - start).set_start(start).set_position(("center", "bottom"))
 
         return CompositeVideoClip([bg_clip, text_clip])
 
