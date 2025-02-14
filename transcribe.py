@@ -2,7 +2,7 @@ import os
 import sys
 import subprocess
 import faster_whisper
-from faster_whisper import Whisper
+
 
 # Check if the library is accessible
 print(f"Faster Whisper Version: {faster_whisper.__version__}")
