@@ -70,7 +70,7 @@ def add_subtitles(video_path, transcript_data, output_path="video_with_subtitles
 
         # Create text clip (White text with black stroke)
         text_clip = TextClip(
-            wrapped_text, fontsize=font_size, color='white', stroke_color='black', stroke_width=3
+            wrapped_text, fontsize=font_size, color='white', stroke_color='white', stroke_width=3
         )
 
         # Create a semi-transparent black background using ColorClip
