@@ -1,33 +1,38 @@
-[0.00s - 1.52s] Mom, I'm going to the train station.
-[1.52s - 2.52s] Wait for me to come home for the New Year.
-[4.52s - 6.52s] I'm going to do something special tonight.
-[6.52s - 7.52s] Oh, right.
-[9.52s - 10.52s] Robbery of public security!
-[10.52s - 11.52s] Watch me!
-[12.52s - 15.52s] This ring is rare in the world.
-[15.52s - 18.52s] I'll teach you how to rob.
-[20.02s - 21.02s] Hurry up!
-[21.02s - 23.02s] I'm in the world.
-[23.02s - 24.52s] I'd better keep robbing.
-[26.52s - 28.52s] The G104 train should be here.
-[29.04s - 31.04s] Robbery of public security!
-[36.04s - 37.04s] Is there a mistake?
-[37.04s - 38.04s] What time is it?
-[40.04s - 41.04s] You're wrong!
-[44.04s - 46.04s] Do you know how to save people?
-[46.04s - 47.04s] Actually, I...
-[50.04s - 53.04s] Bird No. 3 is a migrant worker.
-[53.04s - 55.04s] I'm a native.
-[55.04s - 56.04s] That's great!
-[56.04s - 58.04s] We're saved!
-[59.04s - 62.04s] Watch me break your back!
-[63.04s - 65.04s] I'll break his back with this air gun.
-[65.04s - 67.04s] I suddenly smiled.
-[68.04s - 69.04s] You're a mess.
-[69.04s - 72.04s] I'll see who can keep you today.
-[75.04s - 77.04s] Three, two, one.
-[78.04s - 80.04s] What are you doing?
-[80.04s - 82.04s] Actually, I'm a weightlifting professional.
-[82.04s - 83.04s] Why didn't you tell me earlier?
-[83.04s - 85.04s] You didn't give me a chance.
-[85.04s - 86.04s] Let's go.
+[0.00s - 1.56s] Mom, I'm going to take the train.
+[1.56s - 3.08s] Wait for me to go home for the New Year.
+[4.72s - 6.64s] What can I do here?
+[6.64s - 7.64s] Oh, right.
+[9.48s - 10.52s] How dare you rob me in public?
+[10.52s - 11.52s] I'll teach you a lesson.
+[12.44s - 14.04s] This ring is on the sky.
+[14.04s - 15.60s] It's rare to see a kiss.
+[15.60s - 17.08s] I like little fish.
+[17.08s - 18.00s] I'll teach you.
+[20.00s - 21.20s] Hurry up.
+[21.20s - 23.20s] I'm in the world.
+[23.20s - 24.52s] Come on, let's go on.
+[26.24s - 28.80s] The G104 train should be here.
+[29.60s - 31.00s] Someone is robbing my dad.
+[36.00s - 36.80s] Is there any mistake?
+[36.80s - 37.80s] What time is it?
+[40.20s - 41.60s] I'm going to save people.
+[43.60s - 44.40s] Not me.
+[44.40s - 46.00s] Will you save people or not?
+[46.00s - 47.00s] Actually, I...
+[50.40s - 52.60s] Bird No. 3 is a migrant worker.
+[53.60s - 54.80s] I'm a native.
+[55.20s - 55.80s] That's great.
+[55.80s - 56.60s] It's the native.
+[56.60s - 57.60s] We're saved.
+[59.80s - 62.20s] I'll cut off your back.
+[63.20s - 64.80s] I'll cut off his back with this air gun.
+[65.60s - 66.80s] I suddenly smiled.
+[68.00s - 69.20s] A bunch of people are in a mess.
+[69.20s - 70.00s] I think today
+[70.00s - 71.80s] who can protect you?
+[75.40s - 77.40s] Three, two, one.
+[78.20s - 79.80s] What the hell are you?
+[79.80s - 82.00s] Actually, I'm a weightlifting professional at the PE school.
+[82.40s - 83.40s] Why didn't you tell me earlier?
+[83.40s - 84.80s] You didn't give me a chance.
+[84.80s - 86.00s] Let's go, kid.
