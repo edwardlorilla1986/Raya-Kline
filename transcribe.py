@@ -53,6 +53,9 @@ def transcribe_translate(video_file, model_size="large-v2"):
     return transcript_data, transcript_file
 
 
+import textwrap
+from moviepy.editor import VideoFileClip, TextClip, CompositeVideoClip, ColorClip
+
 def add_subtitles(video_path, transcript_data, output_path="video_with_subtitles.mp4"):
     print("🎬 Adding responsive subtitles with background to video...")
 
