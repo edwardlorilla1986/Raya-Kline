@@ -2,8 +2,10 @@ import os
 import sys
 import subprocess
 import textwrap
+from moviepy.video.tools.subtitles import SubtitlesClip
 from faster_whisper import WhisperModel
-from moviepy.editor import VideoFileClip, TextClip, CompositeVideoClip
+from moviepy.editor import VideoFileClip, TextClip, CompositeVideoClip, ColorClip
+
 
 # Function to extract audio from video
 def extract_audio(video_path, audio_path="temp_audio.wav"):
@@ -50,9 +52,9 @@ def transcribe_translate(video_file, model_size="large-v2"):
     print(f"✅ Transcript saved: {transcript_file}")
     return transcript_data, transcript_file
 
-# Function to add subtitles to the video
+
 def add_subtitles(video_path, transcript_data, output_path="video_with_subtitles.mp4"):
-    print("🎬 Adding responsive subtitles to video...")
+    print("🎬 Adding responsive subtitles with background to video...")
 
     # Load video
     video = VideoFileClip(video_path)
@@ -63,16 +65,29 @@ def add_subtitles(video_path, transcript_data, output_path="video_with_subtitles
     # Set max characters per line based on video width
     max_chars_per_line = max(20, int(video.w / 30))  # Dynamically adjust wrapping width
 
-    # Function to render wrapped text
-    def render_subtitle(txt):
+    # Subtitle position and background height calculation
+    subtitle_y_position = int(video.h * 0.85)  # Keep subtitles at 85% of screen height
+    bg_height = int(font_size * 2)  # Adjust based on font size
+
+    # Function to render wrapped text with background
+    def render_subtitle(txt, start, end):
         wrapped_text = "\n".join(textwrap.wrap(txt, width=max_chars_per_line))
-        return TextClip(wrapped_text, fontsize=font_size, color='white', stroke_color='black', stroke_width=2)
+
+        # Create text clip
+        text_clip = TextClip(
+            wrapped_text, fontsize=font_size, color='white',
+            stroke_color='black', stroke_width=2
+        ).set_duration(end - start).set_start(start).set_position(("center", subtitle_y_position))
+
+        # Create black background (50% transparent)
+        bg_clip = ColorClip(
+            size=(video.w, bg_height), color=(0, 0, 0)  # Black background
+        ).set_opacity(0.5).set_duration(end - start).set_start(start).set_position(("center", subtitle_y_position))
+
+        return CompositeVideoClip([bg_clip, text_clip])
 
     # Create subtitle clips
-    subtitle_clips = []
-    for text, start, end in transcript_data:
-        subtitle = render_subtitle(text).set_position(("center", "bottom")).set_duration(end - start).set_start(start)
-        subtitle_clips.append(subtitle)
+    subtitle_clips = [render_subtitle(text, start, end) for text, start, end in transcript_data]
 
     if not subtitle_clips:
         print("⚠️ No subtitle clips were generated! Check transcription output.")
@@ -84,6 +99,7 @@ def add_subtitles(video_path, transcript_data, output_path="video_with_subtitles
     final_video.write_videofile(output_path, codec="libx264", fps=video.fps, preset="medium", threads=4)
 
     print(f"✅ Video saved with responsive subtitles: {output_path}")
+
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
