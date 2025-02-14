@@ -1,38 +1,39 @@
 [0.00s - 1.60s] Mom, I'm going to take the train.
-[1.60s - 2.80s] Wait for me to go home for the New Year.
+[1.60s - 2.60s] Wait for me to go home for the New Year.
 [4.80s - 6.60s] What can I do here?
 [6.60s - 7.60s] Oh, right.
 [9.40s - 10.60s] How dare you rob me!
 [10.60s - 11.60s] I'll show you!
-[12.40s - 14.00s] This ring is on the sky.
-[14.00s - 15.60s] It's rare to see a kiss.
-[15.60s - 17.00s] I like little fish.
+[12.60s - 14.00s] This ring is on the sky.
+[14.00s - 15.60s] It's rare to see it.
+[15.60s - 17.00s] I like to think about it.
 [17.00s - 18.00s] I'll teach you.
-[20.00s - 21.20s] Come on.
+[20.00s - 21.20s] Hurry up!
 [21.20s - 23.20s] I'm in the world.
 [23.20s - 24.60s] Come on, let's keep robbing.
-[26.20s - 28.80s] The G104 train should be here.
+[26.40s - 27.80s] G104 train.
+[27.80s - 28.80s] It should be here.
 [30.00s - 31.60s] Come on, let's keep robbing.
 [36.60s - 37.60s] Is there a mistake?
 [37.60s - 38.60s] What time is it?
-[40.60s - 41.60s] I'm going to save people.
+[40.60s - 41.60s] We're going to save people.
 [43.60s - 44.60s] Not me.
-[44.60s - 46.60s] Do you know how to save people?
+[44.60s - 46.60s] Are you going to save people or not?
 [46.60s - 47.60s] Actually, I...
 [50.60s - 51.60s] Don't hang around.
-[51.60s - 53.60s] It's a migrant worker.
-[53.60s - 55.60s] I'm a native.
+[51.60s - 52.60s] It's a migrant worker.
+[53.60s - 54.60s] I'm a native.
 [55.60s - 56.60s] That's great.
 [56.60s - 57.60s] It's a native.
 [57.60s - 58.60s] We're saved.
-[60.60s - 62.60s] I'll break your back.
-[63.60s - 65.60s] I'll break his back.
+[60.60s - 62.60s] I'm going to break your back.
+[63.60s - 65.60s] I'm going to break his back.
 [65.60s - 67.60s] I suddenly smiled.
-[67.60s - 69.60s] It's a mess.
-[69.60s - 71.60s] I'll save you today.
+[68.60s - 69.60s] It's a mess.
+[69.60s - 71.60s] I don't think anyone can protect you today.
 [75.60s - 77.60s] Three, two, one.
-[78.60s - 79.60s] What are you doing?
-[79.60s - 82.60s] I'm a weightlifting professional.
+[78.60s - 79.60s] What the hell are you?
+[79.60s - 82.60s] Actually, I'm a weightlifting professional at the Academy of Sports.
 [82.60s - 83.60s] Why didn't you tell me earlier?
-[83.60s - 85.60s] You didn't give me a chance.
+[83.60s - 84.60s] You didn't give me a chance.
 [85.60s - 86.60s] Dismissed.
