@@ -94,7 +94,15 @@ def add_subtitles(video_path, transcript_data, output_path="video_with_subtitles
     # Function to render wrapped text with auto-scaling
     def render_subtitle(txt):
         wrapped_text = "\n".join(textwrap.wrap(txt, width=max_chars_per_line))
-        return TextClip(wrapped_text, fontsize=font_size, color='white', stroke_color='white', stroke_width=3)
+        text_clip = TextClip(
+            wrapped_text, 
+            fontsize=font_size, 
+            color='white', 
+            stroke_color='white', 
+            stroke_width=3, 
+            transparent=True
+        )
+        return ColorClip(size=text_clip.size, color=(0, 0, 0), ismask=False).set_opacity(0.5)
 
     # Create subtitle clips
     subtitle_clips = []
