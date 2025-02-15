@@ -3,7 +3,7 @@ import sys
 import subprocess
 import textwrap
 from faster_whisper import WhisperModel
-from moviepy.editor import VideoFileClip, TextClip, CompositeVideoClip, AudioFileClip
+from moviepy.editor import ColorClip, VideoFileClip, TextClip, CompositeVideoClip, AudioFileClip
 from gtts import gTTS
 
 # Function to extract audio from video
